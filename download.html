@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0f172a">
+  <title>دانلود مستقیم اپلیکیشن اندروید</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Vazirmatn', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      background-color: #0b0f19;
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      text-align: center;
+      cursor: pointer;
+      user-select: none;
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.12) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(14, 165, 233, 0.1) 0px, transparent 50%);
+    }
+
+    .card {
+      background: rgba(17, 24, 39, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 25px rgba(59, 130, 246, 0.15);
+      border-radius: 28px;
+      padding: 42px 28px;
+      max-width: 440px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* هاله نور بالای کارت */
+    .glow-effect {
+      position: absolute;
+      top: -70px;
+      width: 180px;
+      height: 180px;
+      background: #3b82f6;
+      filter: blur(90px);
+      opacity: 0.25;
+      pointer-events: none;
+    }
+
+    /* آیکون مدرن دانلود */
+    .icon-container {
+      width: 86px;
+      height: 86px;
+      border-radius: 50%;
+      background: rgba(59, 130, 246, 0.12);
+      border: 2px solid rgba(59, 130, 246, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+      position: relative;
+      animation: pulseGlow 2.2s infinite ease-in-out;
+    }
+
+    @keyframes pulseGlow {
+      0% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4); }
+      70% { box-shadow: 0 0 0 20px rgba(59, 130, 246, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); }
+    }
+
+    .icon-container svg {
+      width: 42px;
+      height: 42px;
+      fill: #60a5fa;
+      animation: bounceDown 1.8s infinite ease-in-out;
+    }
+
+    @keyframes bounceDown {
+      0%, 100% { transform: translateY(-3px); }
+      50% { transform: translateY(4px); }
+    }
+
+    h1 {
+      font-size: 22px;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 12px;
+      letter-spacing: -0.3px;
+    }
+
+    .desc {
+      font-size: 14.5px;
+      color: #94a3b8;
+      line-height: 1.8;
+      margin-bottom: 24px;
+    }
+
+    /* نوار انیمیشن دانلود */
+    .progress-bar-container {
+      width: 100%;
+      height: 6px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 28px;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, #3b82f6, #06b6d4);
+      border-radius: 10px;
+      animation: loadingAnim 1.8s infinite ease-in-out;
+      transform-origin: 0% 50%;
+    }
+
+    @keyframes loadingAnim {
+      0% { transform: scaleX(0.08); }
+      50% { transform: scaleX(0.85); }
+      100% { transform: scaleX(1); }
+    }
+
+    /* دکمه دانلود */
+    .btn-download {
+      background: linear-gradient(135deg, #2563eb, #0284c7);
+      color: #ffffff;
+      border: none;
+      padding: 15px 32px;
+      border-radius: 50px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.45);
+      transition: all 0.25s ease;
+      text-decoration: none;
+      width: 100%;
+      justify-content: center;
+    }
+
+    .btn-download:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px -5px rgba(37, 99, 235, 0.6);
+      background: linear-gradient(135deg, #3b82f6, #0369a1);
+    }
+
+    .btn-download:active {
+      transform: translateY(0);
+    }
+
+    .btn-download svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
+    .click-anywhere-hint {
+      margin-top: 14px;
+      font-size: 12px;
+      color: #64748b;
+    }
+
+    /* فوتر اطمینان و امنیت */
+    .footer-note {
+      margin-top: 26px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      width: 100%;
+      font-size: 12.5px;
+      color: #64748b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .footer-note svg {
+      width: 16px;
+      height: 16px;
+      fill: #10b981;
+      flex-shrink: 0;
+    }
+
+    @media screen and (max-width: 480px) {
+      .card {
+        padding: 34px 20px;
+      }
+      h1 {
+        font-size: 19px;
+      }
+      .desc {
+        font-size: 13.5px;
+      }
+      .btn-download {
+        font-size: 15px;
+        padding: 14px 20px;
+      }
+    }
+  </style>
+</head>
+<body onclick="startDownload(event)">
+
+  <div class="card" onclick="event.stopPropagation(); startDownload(event);">
+    <div class="glow-effect"></div>
+
+    <!-- آیکون انیمیشنی دانلود -->
+    <div class="icon-container">
+      <svg viewBox="0 0 24 24">
+        <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/>
+      </svg>
+    </div>
+
+    <h1>در حال دریافت فایل برنامه...</h1>
+    
+    <p class="desc">
+      دانلود نسخه رسمی و امن اپلیکیشن تا چند لحظه دیگر به صورت خودکار آغاز می‌شود.
+    </p>
+
+    <!-- نوار پیشرفت مدرن -->
+    <div class="progress-bar-container">
+      <div class="progress-bar"></div>
+    </div>
+
+    <!-- دکمه دانلود مستقیم -->
+    <a href="#" id="download-btn" class="btn-download" onclick="startDownload(event)">
+      <svg viewBox="0 0 24 24">
+        <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+      </svg>
+      <span>دانلود مستقیم برنامه (فایل APK)</span>
+    </a>
+
+    <div class="click-anywhere-hint">
+      (با لمس هر نقطه از صفحه نیز دانلود آغاز می‌شود)
+    </div>
+
+    <!-- تاییدیه امنیت و سلامت فایل -->
+    <div class="footer-note">
+      <svg viewBox="0 0 24 24">
+        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/>
+      </svg>
+      <span>فایل نصبی بررسی‌شده، امن و عاری از هرگونه بدافزار</span>
+    </div>
+  </div>
+
+  <script>
+    /* ========================================================
+       تنظیمات نام فایل دانلود:
+       نام فایل apk خود را که در کنار این صفحه قرار دارد اینجا بنویسید:
+    ======================================================== */
+    const APK_FILE = "bam.apk"; // می‌توانید به app.apk یا هر نام دیگری تغییر دهید
+
+    let downloadInitiated = false;
+
+    // تنظیم لینک دکمه به فایل
+    const btn = document.getElementById('download-btn');
+    if (btn) {
+      btn.href = APK_FILE;
+      btn.setAttribute('download', APK_FILE);
+    }
+
+    function triggerFileDownload() {
+      const link = document.createElement('a');
+      link.href = APK_FILE;
+      link.setAttribute('download', APK_FILE);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    function startDownload(e) {
+      if (e) {
+        e.preventDefault ? e.preventDefault() : null;
+      }
+      triggerFileDownload();
+    }
+
+    // ۱. دانلود خودکار به محض بارگذاری کامل صفحه
+    window.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => {
+        triggerFileDownload();
+      }, 400);
+    });
+
+    // ۲. دانلود با اولین لمس/تاچ صفحه برای جلوگیری از بلاک شدن توسط مرورگرهای موبایل
+    window.addEventListener('touchstart', () => {
+      if (!downloadInitiated) {
+        downloadInitiated = true;
+        triggerFileDownload();
+      }
+    }, { once: true });
+  </script>
+
+</body>
+</html>
